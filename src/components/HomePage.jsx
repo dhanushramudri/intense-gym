@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Star } from 'lucide-react';
 import TestimonialsSection from './TestimonialsSection';
 import HeroSection from './HeroSection';
-import ContactSection from './Contactsection';
+import ContactSection from './ContactSection';
 import Footer from './Footer';
 import GallerySection from './GallerySection';
 import FeaturesSection from './FeaturesSection';
