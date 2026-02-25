@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Star } from 'lucide-react';
+import TestimonialsSection from './TestimonialsSection';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -404,58 +405,7 @@ const HomePage = () => {
       </section>
 
       {/* Reviews Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <p 
-              id="reviews-label"
-              data-animate="true"
-              className={`text-gray-500 font-semibold mb-6 text-xs tracking-wide transition-all duration-700 ${
-                visibleSections['reviews-label'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              MEMBER REVIEWS & FEEDBACK
-            </p>
-            <h2 
-              id="reviews-title"
-              data-animate="true"
-              className={`text-6xl md:text-7xl font-bold mb-4 text-white transition-all duration-700 delay-200 ${
-                visibleSections['reviews-title'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ fontWeight: 700 }}
-            >
-              Strength. Support. Real transformation.
-            </h2>
-            <p className="text-gray-400 text-sm mt-4">4.8★ Rating • 169 Google Reviews</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {reviews.map((review) => (
-              <div 
-                key={review.id}
-                id={review.id}
-                data-animate="true"
-                className={`bg-gray-900 p-8 rounded-lg border border-yellow-500/30 transition-all duration-700 ${
-                  visibleSections[review.id] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-                }`}
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-sm text-gray-300 mb-6 leading-relaxed font-normal">"{review.quote}"</p>
-                <div>
-                  <p className="font-semibold text-white text-sm">{review.name}</p>
-                  {review.verified && (
-                    <p className="text-xs text-yellow-400">✓ Verified Review</p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <TestimonialsSection/>
 
       {/* Contact Section */}
       <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
