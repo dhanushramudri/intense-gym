@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Star } from 'lucide-react';
 import TestimonialsSection from './TestimonialsSection';
+import HeroSection from './HeroSection';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -193,60 +194,8 @@ const HomePage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <div>
-              <h1 
-                id="hero-title"
-                data-animate="true"
-                className={`text-7xl md:text-8xl font-bold mb-8 leading-tight text-white transition-all duration-700 ${
-                  visibleSections['hero-title'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ fontWeight: 700, letterSpacing: '-0.03em' }}
-              >
-                Unleash your ultimate strength
-              </h1>
-              <p 
-                id="hero-text"
-                data-animate="true"
-                className={`text-sm text-gray-400 mb-10 leading-relaxed font-normal max-w-md transition-all duration-700 delay-200 ${
-                  visibleSections['hero-text'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'
-                }`}
-              >
-                Experience next-level training in a high-energy, modern space. Discover advanced equipment, expert coaching, and a community built for transformation.
-              </p>
-              <div 
-                id="hero-buttons"
-                data-animate="true"
-                className={`flex gap-4 flex-wrap transition-all duration-700 delay-300 ${
-                  visibleSections['hero-buttons'] ? 'animate-slide-up-delay-2' : 'opacity-0 translate-y-8'
-                }`}
-              >
-                <button className="bg-yellow-400 hover:bg-yellow-500 px-7 py-3 rounded text-xs font-bold transition text-black tracking-wide">
-                  Join now
-                </button>
-                <button className="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-7 py-3 rounded text-xs font-bold transition tracking-wide">
-                  Free trial
-                </button>
-              </div>
-            </div>
-            <div 
-              id="hero-image"
-              data-animate="true"
-              className={`transition-all duration-700 delay-500 ${
-                visibleSections['hero-image'] ? 'animate-slide-up-delay-3' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <img 
-                src="https://cdn.prod.website-files.com/image-generation-assets/34574341-f99a-4c15-9f10-0e1ff56f7fe6.avif" 
-                alt="Fitness class"
-                className="rounded-lg w-full shadow-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
+
 
 {/* Features Section */}
 <section className="bg-black border-t border-yellow-500/20 overflow-hidden" style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
