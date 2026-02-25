@@ -248,161 +248,255 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <img 
-              src="https://cdn.prod.website-files.com/image-generation-assets/65e862a5-c690-48b1-ab89-e24d50d6efa0.avif" 
-              alt="Profile"
-              className="w-20 h-20 rounded-full mx-auto mb-6"
-            />
-            <h2 
-              id="features-title"
-              data-animate="true"
-              className={`text-6xl md:text-7xl font-bold mb-6 text-white transition-all duration-700 ${
-                visibleSections['features-title'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ fontWeight: 700 }}
-            >
-              Unleash your next level
-            </h2>
-            <p 
-              id="features-text"
-              data-animate="true"
-              className={`text-gray-400 max-w-2xl mx-auto text-sm font-normal leading-relaxed transition-all duration-700 delay-200 ${
-                visibleSections['features-text'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              Experience elite coaching, signature programs, and advanced equipment—engineered for your transformation.
-            </p>
+{/* Features Section */}
+<section className="bg-black border-t border-yellow-500/20 overflow-hidden" style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
+  {/* Header */}
+  <div className="px-4 sm:px-8 lg:px-16 pt-24 pb-16 max-w-7xl mx-auto">
+    <div className="flex justify-between items-end flex-wrap gap-6">
+      <div>
+        <div className="flex items-center gap-4 mb-5">
+          <img
+            src="https://cdn.prod.website-files.com/image-generation-assets/65e862a5-c690-48b1-ab89-e24d50d6efa0.avif"
+            alt="Profile"
+            className="w-11 h-11 rounded-full object-cover"
+            style={{ border: '2px solid rgba(245,158,11,0.4)' }}
+          />
+          <span
+            id="features-title"
+            data-animate="true"
+            className={`text-xs font-bold tracking-widest transition-all duration-700 ${visibleSections['features-title'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}
+            style={{ color: '#F59E0B', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', padding: '5px 14px', borderRadius: '2px' }}
+          >
+            CERTIFIED TRAINERS · ELITE PROGRAMS · TOP GEAR
+          </span>
+        </div>
+        <h2
+          className="font-black text-white"
+          style={{ fontSize: 'clamp(40px,6vw,76px)', lineHeight: 1, letterSpacing: '-0.03em' }}
+        >
+          Unleash your<br />
+          <span style={{ color: '#F59E0B' }}>next level.</span>
+        </h2>
+      </div>
+      <p
+        id="features-text"
+        data-animate="true"
+        className={`text-sm leading-relaxed max-w-xs transition-all duration-700 delay-200 ${visibleSections['features-text'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'}`}
+        style={{ color: '#444' }}
+      >
+        Dynamic gym with diverse classes, passionate trainers, certified nutritionists & state-of-the-art equipment — Vizianagaram's #1 rated fitness studio.
+      </p>
+    </div>
+  </div>
+
+  {/* Cards — asymmetric editorial grid */}
+  <div className="px-4 sm:px-8 lg:px-16 pb-0 max-w-7xl mx-auto">
+    <div style={{ display: 'grid', gridTemplateColumns: '1.45fr 1fr 1fr', gap: '3px' }}>
+      {[
+        {
+          id: 'card-1', delay: '0.05s',
+          tag: 'TRAINER', tagColor: '#F59E0B',
+          src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3d08_bb0cbef0-499c-400c-a83b-f39230d2302a.avif',
+          title: 'Certified Trainers',
+          sub: 'Results Guaranteed',
+          stat: '4.8★', statLabel: 'GOOGLE RATING',
+          desc: 'Train with certified coaches who specialise in Weight Loss, Strength, and Martial Arts. Passionate trainers — empowering both men and women.',
+          cta: 'Meet Our Trainers →',
+          accentLine: 'Train with champions.',
+          height: '580px',
+          titleSize: '30px',
+        },
+        {
+          id: 'card-2', delay: '0.15s',
+          tag: 'PROGRAMS', tagColor: '#EF4444',
+          src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cbb_265cca82-58d0-46cf-9738-66a57a4e722a.avif',
+          title: 'Weight Loss & Strength',
+          sub: 'Diverse Class Lineup',
+          stat: '6+', statLabel: 'PROGRAMS',
+          desc: 'Crossfit, Cardio, Zumba, Martial Arts, Strength Training & Weight Loss — all under one roof at Babametta, Vizianagaram.',
+          cta: 'Explore Programs →',
+          accentLine: 'Every goal. One studio.',
+          height: '480px',
+          titleSize: '22px',
+        },
+        {
+          id: 'card-3', delay: '0.25s',
+          tag: 'NUTRITION', tagColor: '#10B981',
+          src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cb4_5b80479a-0b3c-4d64-bd4e-20f04fa0ccbc.avif',
+          title: 'Certified Nutritionists',
+          sub: 'State-of-the-Art Equipment',
+          stat: '100%', statLabel: 'RESULTS GUARANTEED',
+          desc: 'On-site certified nutritionists provide personalised meal plans. Advanced equipment, outdoor training, and full-body transformation support.',
+          cta: 'See Facilities →',
+          accentLine: 'Fuel. Train. Transform.',
+          height: '480px',
+          titleSize: '22px',
+        },
+      ].map((card) => (
+        <div
+          key={card.id}
+          id={card.id}
+          data-animate="true"
+          className={`transition-all duration-700 ${visibleSections[card.id] ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}
+          style={{ animationDelay: card.delay, position: 'relative', overflow: 'hidden', height: card.height, cursor: 'pointer' }}
+        >
+          {/* BG image */}
+          <img
+            src={card.src}
+            alt={card.title}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s ease' }}
+          />
+          {/* Gradient */}
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.05) 100%)' }} />
+          {/* Top accent sweep */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: card.tagColor, transform: 'scaleX(0)', transformOrigin: 'left', transition: 'transform 0.4s ease' }}
+            className="top-accent" />
+          {/* Tag */}
+          <div style={{ position: 'absolute', top: '22px', left: '22px', background: card.tagColor, color: '#000', fontSize: '9px', fontWeight: 800, letterSpacing: '0.18em', padding: '4px 11px', borderRadius: '2px' }}>
+            {card.tag}
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Trainer Card */}
-            <div 
-              id="card-1"
-              data-animate="true"
-              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-yellow-500/30 ${
-                visibleSections['card-1'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ animationDelay: '0.1s' }}
-            >
-              <img 
-                src="https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3d08_bb0cbef0-499c-400c-a83b-f39230d2302a.avif"
-                alt="Jordan Ellis"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <p className="text-yellow-400 text-xs font-bold mb-3 tracking-wide">TRAINER</p>
-                <h3 className="text-xl font-bold mb-3 text-white">Jordan Ellis</h3>
-                <p className="text-gray-400 mb-4 text-xs leading-relaxed font-normal">
-                  Strength expert with 8 years' experience. Specializes in muscle building and performance for all levels.
-                </p>
-                <a href="#" className="text-yellow-400 font-semibold text-xs hover:text-yellow-300 transition">View →</a>
-              </div>
-            </div>
-
-            {/* Program Card */}
-            <div 
-              id="card-2"
-              data-animate="true"
-              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-yellow-500/30 ${
-                visibleSections['card-2'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ animationDelay: '0.2s' }}
-            >
-              <img 
-                src="https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cbb_265cca82-58d0-46cf-9738-66a57a4e722a.avif"
-                alt="Muscle Gain Program"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <p className="text-yellow-400 text-xs font-bold mb-3 tracking-wide">PROGRAM</p>
-                <h3 className="text-xl font-bold mb-3 text-white">Muscle Gain</h3>
-                <p className="text-gray-400 mb-4 text-xs leading-relaxed font-normal">
-                  Targeted routines and custom plans to build lean muscle, increase strength, and deliver real results.
-                </p>
-                <a href="#" className="text-yellow-400 font-semibold text-xs hover:text-yellow-300 transition">Explore →</a>
-              </div>
-            </div>
-
-            {/* Equipment Card */}
-            <div 
-              id="card-3"
-              data-animate="true"
-              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-yellow-500/30 ${
-                visibleSections['card-3'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ animationDelay: '0.3s' }}
-            >
-              <img 
-                src="https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cb4_5b80479a-0b3c-4d64-bd4e-20f04fa0ccbc.avif"
-                alt="3D Power Rack"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <p className="text-yellow-400 text-xs font-bold mb-3 tracking-wide">EQUIPMENT</p>
-                <h3 className="text-xl font-bold mb-3 text-white">3D Power Rack</h3>
-                <p className="text-gray-400 mb-4 text-xs leading-relaxed font-normal">
-                  Multi-functional rack for safe, dynamic training. Built for heavy lifts and versatile workouts.
-                </p>
-                <a href="#" className="text-yellow-400 font-semibold text-xs hover:text-yellow-300 transition">See more →</a>
-              </div>
+          {/* Stat top-right */}
+          <div style={{ position: 'absolute', top: '18px', right: '22px', textAlign: 'right' }}>
+            <div style={{ fontSize: '26px', fontWeight: 900, color: card.tagColor, lineHeight: 1, letterSpacing: '-0.03em' }}>{card.stat}</div>
+            <div style={{ fontSize: '8px', fontWeight: 700, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.15em', marginTop: '3px' }}>{card.statLabel}</div>
+          </div>
+          {/* Bottom content */}
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '28px 26px' }}>
+            <p style={{ fontStyle: 'italic', color: card.tagColor, fontSize: '11px', fontWeight: 600, marginBottom: '8px', opacity: 0, transition: 'all 0.35s ease' }} className="card-italic">
+              {card.accentLine}
+            </p>
+            <p style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.12em', marginBottom: '5px' }}>{card.sub}</p>
+            <h3 style={{ fontWeight: 900, color: '#fff', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '10px', fontSize: card.titleSize }}>{card.title}</h3>
+            <p style={{ color: '#999', fontSize: '12px', lineHeight: 1.7, marginBottom: '18px', maxWidth: '300px' }}>{card.desc}</p>
+            <div style={{ display: 'inline-flex', color: card.tagColor, fontSize: '11px', fontWeight: 800, letterSpacing: '0.06em', borderBottom: `1px solid ${card.tagColor}`, paddingBottom: '2px', transition: 'transform 0.3s ease' }} className="card-cta">
+              {card.cta}
             </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
 
-      {/* Gallery Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-20">
-            <h2 
-              id="gallery-title"
-              data-animate="true"
-              className={`text-6xl md:text-7xl font-bold text-center mb-6 text-white transition-all duration-700 ${
-                visibleSections['gallery-title'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ fontWeight: 700 }}
-            >
-              Unleash your power gallery
-            </h2>
-            <p 
-              id="gallery-text"
-              data-animate="true"
-              className={`text-center text-gray-400 text-sm font-normal transition-all duration-700 delay-200 ${
-                visibleSections['gallery-text'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              See our space, gear, and real results
-            </p>
+    {/* Stats bar — real data */}
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '3px', marginTop: '3px' }}>
+      {[
+        { num: '4.8★', label: 'JUSTDIAL RATING', color: '#F59E0B' },
+        { num: '169', label: 'VERIFIED REVIEWS', color: '#EF4444' },
+        { num: 'UNISEX', label: 'MEN & WOMEN WELCOME', color: '#10B981' },
+        { num: '10PM', label: 'OPEN TILL DAILY', color: '#8B5CF6' },
+      ].map((s, i) => (
+        <div key={i} style={{ background: '#0D0D0D', padding: '22px 28px', borderTop: `2px solid ${s.color}` }}>
+          <div style={{ fontSize: s.num === 'UNISEX' ? '18px' : '26px', fontWeight: 900, color: s.color, lineHeight: 1, letterSpacing: '-0.02em' }}>{s.num}</div>
+          <div style={{ fontSize: '9px', fontWeight: 700, color: '#3a3a3a', letterSpacing: '0.15em', marginTop: '5px' }}>{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Hover effects via style tag */}
+  <style>{`
+    [data-animate]:hover .top-accent { transform: scaleX(1) !important; }
+    [data-animate]:hover .card-italic { opacity: 1 !important; transform: translateY(0) !important; }
+    [data-animate]:hover .card-cta { transform: translateX(4px); }
+    [data-animate]:hover img { transform: scale(1.07) !important; }
+  `}</style>
+</section>
+
+{/* Gallery Section */}
+<section className="bg-black border-t border-yellow-500/20 overflow-hidden" style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
+  {/* Header */}
+  <div className="px-4 sm:px-8 lg:px-16 pt-24 pb-12 max-w-7xl mx-auto">
+    <div className="flex justify-between items-end flex-wrap gap-4">
+      <div>
+        <span
+          className="text-xs font-bold tracking-widest block mb-4"
+          style={{ color: '#F59E0B', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', padding: '5px 14px', borderRadius: '2px', display: 'inline-block' }}
+        >
+          GYM · STUDIO · REAL RESULTS
+        </span>
+        <h2
+          id="gallery-title"
+          data-animate="true"
+          className={`font-black text-white transition-all duration-700 ${visibleSections['gallery-title'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}
+          style={{ fontSize: 'clamp(40px,6vw,76px)', lineHeight: 1, letterSpacing: '-0.03em' }}
+        >
+          Inside the<br />
+          <span style={{ color: '#F59E0B' }}>studio.</span>
+        </h2>
+      </div>
+      <p
+        id="gallery-text"
+        data-animate="true"
+        className={`text-xs font-medium tracking-wider transition-all duration-700 delay-200 ${visibleSections['gallery-text'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'}`}
+        style={{ color: '#3a3a3a', letterSpacing: '0.08em' }}
+      >
+        CONVECTION, BABAMETTA, VIZIANAGARAM – 535002 · OPEN DAILY TILL 10PM
+      </p>
+    </div>
+  </div>
+
+  {/* Bento Gallery Grid */}
+  <div className="px-4 sm:px-8 lg:px-16 pb-0 max-w-7xl mx-auto">
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '280px 280px', gap: '3px' }}>
+      {[
+        { id: 'gallery-1', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cd9_d6396a06-2c67-4413-ada6-7519c5ec89f6.avif', label: 'CROSSFIT', num: '01', span: true },
+        { id: 'gallery-2', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cbb_265cca82-58d0-46cf-9738-66a57a4e722a.avif', label: 'STRENGTH TRAINING', num: '02' },
+        { id: 'gallery-3', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3ce9_4c32c137-318f-4f14-a635-3fd906c2536d.avif', label: 'CARDIO', num: '03' },
+        { id: 'gallery-4', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cc6_51a6e544-7817-4aa2-ab99-b6bc730ecaf2.avif', label: 'ZUMBA', num: '04' },
+        { id: 'gallery-5', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3ce0_e547fb3a-375a-45d1-afb2-5b5f37d12f6c.avif', label: 'MARTIAL ARTS', num: '05' },
+        { id: 'gallery-6', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cf0_2ad85973-85f5-4544-9212-e559c6b93524.avif', label: 'WEIGHT LOSS', num: '06' },
+      ].map((img, idx) => (
+        <div
+          key={img.id}
+          id={img.id}
+          data-animate="true"
+          className={`gal-item transition-all duration-700 ${visibleSections[img.id] ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}
+          style={{
+            position: 'relative', overflow: 'hidden', cursor: 'crosshair',
+            gridRow: img.span ? 'span 2' : undefined,
+            animationDelay: `${idx * 0.07}s`,
+          }}
+        >
+          <img
+            src={img.src}
+            alt={img.label}
+            className="gal-img"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.7s ease' }}
+          />
+          <div className="gal-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.38)', transition: 'background 0.4s ease' }} />
+          <div className="gal-border" style={{ position: 'absolute', inset: 0, border: '2px solid transparent', transition: 'border-color 0.3s ease', pointerEvents: 'none' }} />
+          <div className="gal-label" style={{ position: 'absolute', bottom: '16px', left: '16px', background: 'rgba(0,0,0,0.65)', color: '#fff', fontSize: '8px', fontWeight: 800, letterSpacing: '0.2em', padding: '5px 10px', borderRadius: '2px', transition: 'all 0.3s ease', backdropFilter: 'blur(4px)' }}>
+            {img.label}
           </div>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { id: 'gallery-1', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cd9_d6396a06-2c67-4413-ada6-7519c5ec89f6.avif' },
-              { id: 'gallery-2', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cbb_265cca82-58d0-46cf-9738-66a57a4e722a.avif' },
-              { id: 'gallery-3', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3ce9_4c32c137-318f-4f14-a635-3fd906c2536d.avif' },
-              { id: 'gallery-4', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cc6_51a6e544-7817-4aa2-ab99-b6bc730ecaf2.avif' },
-              { id: 'gallery-5', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3ce0_e547fb3a-375a-45d1-afb2-5b5f37d12f6c.avif' },
-              { id: 'gallery-6', src: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cf0_2ad85973-85f5-4544-9212-e559c6b93524.avif' }
-            ].map((img, idx) => (
-              <img 
-                key={img.id}
-                id={img.id}
-                data-animate="true"
-                src={img.src}
-                alt={`Gallery ${idx + 1}`}
-                className={`rounded-lg w-full h-64 object-cover hover:opacity-80 transition ${
-                  visibleSections[img.id] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${idx * 50}ms` }}
-              />
-            ))}
+          <div style={{ position: 'absolute', top: '14px', right: '14px', color: 'rgba(255,255,255,0.2)', fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em' }}>
+            {img.num}
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* CTA Strip — real programs from Justdial */}
+    <div style={{ background: '#F59E0B', padding: '18px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginTop: '3px' }}>
+      <span style={{ fontWeight: 900, fontSize: '12px', color: '#000', letterSpacing: '-0.01em' }}>
+        Crossfit · Cardio · Zumba · Martial Arts · Strength · Weight Loss · Outdoor Training — All at Babametta, Vizianagaram.
+      </span>
+      <button
+        className="bg-black text-yellow-400 font-black text-xs tracking-widest px-6 py-2.5 transition hover:bg-gray-900"
+        style={{ borderRadius: '2px', fontFamily: 'inherit' }}
+      >
+        JOIN NOW →
+      </button>
+    </div>
+  </div>
+
+  <div style={{ paddingBottom: '80px' }} />
+
+  <style>{`
+    .gal-item:hover .gal-img { transform: scale(1.06) !important; }
+    .gal-item:hover .gal-overlay { background: rgba(0,0,0,0.15) !important; }
+    .gal-item:hover .gal-border { border-color: rgba(245,158,11,0.65) !important; }
+    .gal-item:hover .gal-label { background: #F59E0B !important; color: #000 !important; }
+  `}</style>
+</section>
 
       {/* Reviews Section */}
             <TestimonialsSection/>
