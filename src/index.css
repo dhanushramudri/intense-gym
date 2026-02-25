@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation utility classes */
+.animate-slide-up {
+  animation: slideUpFade 0.8s ease-out forwards !important;
+}
+
+.animate-slide-up-delay-1 {
+  animation: slideUpFade 0.8s ease-out 0.2s forwards !important;
+}
+
+.animate-slide-up-delay-2 {
+  animation: slideUpFade 0.8s ease-out 0.4s forwards !important;
+}
+
+.animate-slide-up-delay-3 {
+  animation: slideUpFade 0.8s ease-out 0.6s forwards !important;
+}
+
+.animate-slide-up-delay-4 {
+  animation: slideUpFade 0.8s ease-out 0.8s forwards !important;
+}
+
+/* Smooth transitions for scroll-based animations */
+.transition {
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.delay-200 {
+  transition-delay: 0.2s !important;
+}
+
+.delay-300 {
+  transition-delay: 0.3s !important;
+}
+
+.delay-400 {
+  transition-delay: 0.4s !important;
+}
+
+.delay-500 {
+  transition-delay: 0.5s !important;
+}
+
+/* Translate utilities */
+.translate-y-8 {
+  transform: translateY(2rem);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Smooth hover effects */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Focus styles */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Text utilities */
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
