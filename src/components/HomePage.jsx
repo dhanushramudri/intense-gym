@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Star } from 'lucide-react';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,15 +52,46 @@ const HomePage = () => {
     };
   }, []);
 
+  const reviews = [
+    {
+      id: 'review-1',
+      name: 'Rajesh Kumar',
+      rating: 5,
+      quote: 'Best gym in Vizianagaram! The trainers are certified and very supportive. I have seen amazing results in just 3 months. Highly recommended!',
+      verified: true
+    },
+    {
+      id: 'review-2',
+      name: 'Priya Sharma',
+      rating: 5,
+      quote: 'Passionate trainers with state-of-the-art equipment. The female trainers are empowering and make you feel confident. Love this gym!',
+      verified: true
+    },
+    {
+      id: 'review-3',
+      name: 'Arjun Patel',
+      rating: 5,
+      quote: 'Diverse classes and certified nutritionists available. The gym has everything you need for transformation. Worth every penny!',
+      verified: true
+    },
+    {
+      id: 'review-4',
+      name: 'Sneha Gupta',
+      rating: 5,
+      quote: 'Amazing community here. The energy in the gym is incredible and the trainers genuinely care about your progress.',
+      verified: true
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Navigation */}
-      <nav className="bg-black sticky top-0 z-50 border-b border-gray-800">
+      <nav className="bg-black sticky top-0 z-50 border-b border-yellow-500/20">
         <div className="max-w-full px-4 sm:px-8 lg:px-16">
           <div className="flex justify-between items-center h-20">
             {/* Logo + Brand */}
             <div className="flex items-center gap-3">
-              <div className="w-7 h-7 bg-white rounded flex items-center justify-center flex-shrink-0">
+              <div className="w-7 h-7 bg-yellow-400 rounded flex items-center justify-center flex-shrink-0">
                 <div className="text-black font-bold text-sm">✦</div>
               </div>
               <a href="#" className="text-white font-semibold text-xs hidden sm:block tracking-tight">
@@ -73,48 +104,48 @@ const HomePage = () => {
               <div className="relative">
                 <button 
                   onClick={() => setOpenDropdown(openDropdown === 'programs' ? null : 'programs')}
-                  className="flex items-center space-x-1 text-gray-300 hover:text-white transition text-xs font-medium cursor-pointer"
+                  className="flex items-center space-x-1 text-gray-300 hover:text-yellow-400 transition text-xs font-medium cursor-pointer"
                 >
                   Programs
                   <ChevronDown size={14} className={`transition-transform duration-300 ${openDropdown === 'programs' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'programs' && (
-                  <div className="absolute left-0 mt-2 w-72 bg-black rounded shadow-2xl py-6 z-50 border border-gray-700">
+                  <div className="absolute left-0 mt-2 w-72 bg-black rounded shadow-2xl py-6 z-50 border border-yellow-500/30">
                     <div className="px-6 py-2">
-                      <p className="text-xs font-semibold text-gray-500 mb-3 tracking-wide">TRAINING</p>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Weight Loss</a>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Muscle Gain</a>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Strength</a>
+                      <p className="text-xs font-semibold text-yellow-400 mb-3 tracking-wide">TRAINING</p>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Weight Loss</a>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Muscle Gain</a>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Strength</a>
                     </div>
-                    <div className="px-6 py-2 border-t border-gray-700">
-                      <p className="text-xs font-semibold text-gray-500 mb-3 tracking-wide">COACHING</p>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Personal Training</a>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Body Transformation</a>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Nutrition</a>
+                    <div className="px-6 py-2 border-t border-yellow-500/20">
+                      <p className="text-xs font-semibold text-yellow-400 mb-3 tracking-wide">COACHING</p>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Personal Training</a>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Body Transformation</a>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Nutrition</a>
                     </div>
-                    <div className="px-6 py-2 border-t border-gray-700">
-                      <p className="text-xs font-semibold text-gray-500 mb-3 tracking-wide">FACILITIES</p>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Equipment</a>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Studio</a>
-                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-white transition">Community</a>
+                    <div className="px-6 py-2 border-t border-yellow-500/20">
+                      <p className="text-xs font-semibold text-yellow-400 mb-3 tracking-wide">FACILITIES</p>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Equipment</a>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Studio</a>
+                      <a href="#" className="block text-xs py-2.5 text-gray-300 hover:text-yellow-400 transition">Community</a>
                     </div>
                   </div>
                 )}
               </div>
-              <a href="#" className="text-gray-300 hover:text-white transition text-xs font-medium">About</a>
-              <a href="#" className="text-gray-300 hover:text-white transition text-xs font-medium">Blog</a>
+              <a href="#" className="text-gray-300 hover:text-yellow-400 transition text-xs font-medium">About</a>
+              <a href="#" className="text-gray-300 hover:text-yellow-400 transition text-xs font-medium">Blog</a>
               <div className="relative">
                 <button 
                   onClick={() => setOpenDropdown(openDropdown === 'support' ? null : 'support')}
-                  className="flex items-center space-x-1 text-gray-300 hover:text-white transition text-xs font-medium cursor-pointer"
+                  className="flex items-center space-x-1 text-gray-300 hover:text-yellow-400 transition text-xs font-medium cursor-pointer"
                 >
                   Support
                   <ChevronDown size={14} className={`transition-transform duration-300 ${openDropdown === 'support' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'support' && (
-                  <div className="absolute left-0 mt-2 w-44 bg-black rounded shadow-2xl py-3 z-50 border border-gray-700">
-                    <a href="#" className="block px-6 py-2.5 text-xs text-gray-300 hover:text-white transition">Help Center</a>
-                    <a href="#" className="block px-6 py-2.5 text-xs text-gray-300 hover:text-white transition">Contact</a>
+                  <div className="absolute left-0 mt-2 w-44 bg-black rounded shadow-2xl py-3 z-50 border border-yellow-500/30">
+                    <a href="#" className="block px-6 py-2.5 text-xs text-gray-300 hover:text-yellow-400 transition">Help Center</a>
+                    <a href="#" className="block px-6 py-2.5 text-xs text-gray-300 hover:text-yellow-400 transition">Contact</a>
                   </div>
                 )}
               </div>
@@ -122,7 +153,7 @@ const HomePage = () => {
 
             {/* Join Button */}
             <div className="flex items-center gap-4">
-              <button className="hidden sm:block bg-red-600 hover:bg-red-700 px-6 py-2 rounded text-xs font-semibold transition text-white">
+              <button className="hidden sm:block bg-yellow-400 hover:bg-yellow-500 px-6 py-2 rounded text-xs font-semibold transition text-black">
                 Join now
               </button>
               
@@ -135,24 +166,24 @@ const HomePage = () => {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="md:hidden pb-6 border-t border-gray-700 bg-black">
+            <div className="md:hidden pb-6 border-t border-yellow-500/20 bg-black">
               <div className="py-3">
                 <button onClick={() => toggleDropdown('programs')} className="w-full text-left px-4 py-2.5 text-white text-xs font-medium">
                   Programs {openDropdown === 'programs' ? '▼' : '▶'}
                 </button>
                 {openDropdown === 'programs' && (
                   <div className="bg-gray-900 px-4 py-2 ml-4 mt-2 rounded">
-                    <p className="text-xs font-semibold text-gray-400 mb-2">TRAINING</p>
-                    <a href="#" className="block text-xs py-2 text-gray-300 hover:text-white">Weight Loss</a>
-                    <a href="#" className="block text-xs py-2 text-gray-300 hover:text-white">Muscle Gain</a>
-                    <a href="#" className="block text-xs py-2 text-gray-300 hover:text-white">Strength</a>
+                    <p className="text-xs font-semibold text-yellow-400 mb-2">TRAINING</p>
+                    <a href="#" className="block text-xs py-2 text-gray-300 hover:text-yellow-400">Weight Loss</a>
+                    <a href="#" className="block text-xs py-2 text-gray-300 hover:text-yellow-400">Muscle Gain</a>
+                    <a href="#" className="block text-xs py-2 text-gray-300 hover:text-yellow-400">Strength</a>
                   </div>
                 )}
               </div>
-              <a href="#" className="block px-4 py-2.5 text-gray-300 hover:text-white text-xs font-medium">About</a>
-              <a href="#" className="block px-4 py-2.5 text-gray-300 hover:text-white text-xs font-medium">Blog</a>
-              <a href="#" className="block px-4 py-2.5 text-gray-300 hover:text-white text-xs font-medium">Support</a>
-              <button className="w-full mt-4 mx-4 bg-red-600 hover:bg-red-700 px-6 py-2.5 rounded text-xs font-semibold transition text-white">
+              <a href="#" className="block px-4 py-2.5 text-gray-300 hover:text-yellow-400 text-xs font-medium">About</a>
+              <a href="#" className="block px-4 py-2.5 text-gray-300 hover:text-yellow-400 text-xs font-medium">Blog</a>
+              <a href="#" className="block px-4 py-2.5 text-gray-300 hover:text-yellow-400 text-xs font-medium">Support</a>
+              <button className="w-full mt-4 mx-4 bg-yellow-400 hover:bg-yellow-500 px-6 py-2.5 rounded text-xs font-semibold transition text-black">
                 Join now
               </button>
             </div>
@@ -191,10 +222,10 @@ const HomePage = () => {
                   visibleSections['hero-buttons'] ? 'animate-slide-up-delay-2' : 'opacity-0 translate-y-8'
                 }`}
               >
-                <button className="bg-red-600 hover:bg-red-700 px-7 py-3 rounded text-xs font-bold transition text-white tracking-wide">
+                <button className="bg-yellow-400 hover:bg-yellow-500 px-7 py-3 rounded text-xs font-bold transition text-black tracking-wide">
                   Join now
                 </button>
-                <button className="border border-gray-600 text-white hover:border-white px-7 py-3 rounded text-xs font-bold transition tracking-wide">
+                <button className="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-7 py-3 rounded text-xs font-bold transition tracking-wide">
                   Free trial
                 </button>
               </div>
@@ -217,7 +248,7 @@ const HomePage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-gray-800">
+      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <img 
@@ -251,7 +282,7 @@ const HomePage = () => {
             <div 
               id="card-1"
               data-animate="true"
-              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-gray-800 ${
+              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-yellow-500/30 ${
                 visibleSections['card-1'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
               }`}
               style={{ animationDelay: '0.1s' }}
@@ -262,12 +293,12 @@ const HomePage = () => {
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <p className="text-red-500 text-xs font-bold mb-3 tracking-wide">TRAINER</p>
+                <p className="text-yellow-400 text-xs font-bold mb-3 tracking-wide">TRAINER</p>
                 <h3 className="text-xl font-bold mb-3 text-white">Jordan Ellis</h3>
                 <p className="text-gray-400 mb-4 text-xs leading-relaxed font-normal">
                   Strength expert with 8 years' experience. Specializes in muscle building and performance for all levels.
                 </p>
-                <a href="#" className="text-red-500 font-semibold text-xs hover:text-red-400 transition">View →</a>
+                <a href="#" className="text-yellow-400 font-semibold text-xs hover:text-yellow-300 transition">View →</a>
               </div>
             </div>
 
@@ -275,7 +306,7 @@ const HomePage = () => {
             <div 
               id="card-2"
               data-animate="true"
-              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-gray-800 ${
+              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-yellow-500/30 ${
                 visibleSections['card-2'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
               }`}
               style={{ animationDelay: '0.2s' }}
@@ -286,12 +317,12 @@ const HomePage = () => {
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <p className="text-red-500 text-xs font-bold mb-3 tracking-wide">PROGRAM</p>
+                <p className="text-yellow-400 text-xs font-bold mb-3 tracking-wide">PROGRAM</p>
                 <h3 className="text-xl font-bold mb-3 text-white">Muscle Gain</h3>
                 <p className="text-gray-400 mb-4 text-xs leading-relaxed font-normal">
                   Targeted routines and custom plans to build lean muscle, increase strength, and deliver real results.
                 </p>
-                <a href="#" className="text-red-500 font-semibold text-xs hover:text-red-400 transition">Explore →</a>
+                <a href="#" className="text-yellow-400 font-semibold text-xs hover:text-yellow-300 transition">Explore →</a>
               </div>
             </div>
 
@@ -299,7 +330,7 @@ const HomePage = () => {
             <div 
               id="card-3"
               data-animate="true"
-              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-gray-800 ${
+              className={`bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition border border-yellow-500/30 ${
                 visibleSections['card-3'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
               }`}
               style={{ animationDelay: '0.3s' }}
@@ -310,12 +341,12 @@ const HomePage = () => {
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <p className="text-red-500 text-xs font-bold mb-3 tracking-wide">EQUIPMENT</p>
+                <p className="text-yellow-400 text-xs font-bold mb-3 tracking-wide">EQUIPMENT</p>
                 <h3 className="text-xl font-bold mb-3 text-white">3D Power Rack</h3>
                 <p className="text-gray-400 mb-4 text-xs leading-relaxed font-normal">
                   Multi-functional rack for safe, dynamic training. Built for heavy lifts and versatile workouts.
                 </p>
-                <a href="#" className="text-red-500 font-semibold text-xs hover:text-red-400 transition">See more →</a>
+                <a href="#" className="text-yellow-400 font-semibold text-xs hover:text-yellow-300 transition">See more →</a>
               </div>
             </div>
           </div>
@@ -323,7 +354,7 @@ const HomePage = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-gray-800">
+      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
             <h2 
@@ -372,77 +403,53 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-gray-800">
+      {/* Reviews Section */}
+      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <p 
-              id="testimonials-label"
+              id="reviews-label"
               data-animate="true"
               className={`text-gray-500 font-semibold mb-6 text-xs tracking-wide transition-all duration-700 ${
-                visibleSections['testimonials-label'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
+                visibleSections['reviews-label'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
               }`}
             >
-              MEMBER TESTIMONIALS
+              MEMBER REVIEWS & FEEDBACK
             </p>
             <h2 
-              id="testimonials-title"
+              id="reviews-title"
               data-animate="true"
               className={`text-6xl md:text-7xl font-bold mb-4 text-white transition-all duration-700 delay-200 ${
-                visibleSections['testimonials-title'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'
+                visibleSections['reviews-title'] ? 'animate-slide-up-delay-1' : 'opacity-0 translate-y-8'
               }`}
               style={{ fontWeight: 700 }}
             >
               Strength. Support. Real transformation.
             </h2>
+            <p className="text-gray-400 text-sm mt-4">4.8★ Rating • 169 Google Reviews</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                id: 'testimonial-1',
-                name: 'Riley Morgan',
-                quote: 'Every session challenges me to level up. I feel stronger and more motivated after every workout.',
-                image: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3d14_ad3feb4c-cbb4-4734-8985-8422ff940b02.avif'
-              },
-              {
-                id: 'testimonial-2',
-                name: 'Casey Bennett',
-                quote: 'Top-tier equipment and a powerful vibe. I\'m always driven to push my limits here.',
-                image: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3cc2_f8056918-2c9b-4a1a-9ac5-e866b64a2e95.avif'
-              },
-              {
-                id: 'testimonial-3',
-                name: 'Skylar Reed',
-                quote: 'Joining changed my fitness journey. The energy and encouragement are next level.',
-                image: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3d0d_5e59592d-a1e2-4b63-89c9-85314a71211e.avif'
-              },
-              {
-                id: 'testimonial-4',
-                name: 'Drew Ellis',
-                quote: 'Expert coaches and a premium atmosphere. I\'m inspired to train harder every visit.',
-                image: 'https://cdn.prod.website-files.com/699954413dc91a755e1ce480/699963b96284b220672f3d23_a39699da-1244-4e9a-827a-d2b7c3fd00f7.avif'
-              }
-            ].map((testimonial) => (
+            {reviews.map((review) => (
               <div 
-                key={testimonial.id}
-                id={testimonial.id}
+                key={review.id}
+                id={review.id}
                 data-animate="true"
-                className={`bg-gray-900 p-8 rounded-lg border border-gray-800 transition-all duration-700 ${
-                  visibleSections[testimonial.id] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
+                className={`bg-gray-900 p-8 rounded-lg border border-yellow-500/30 transition-all duration-700 ${
+                  visibleSections[review.id] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
                 }`}
               >
-                <p className="text-sm text-gray-300 mb-6 leading-relaxed font-normal">"{testimonial.quote}"</p>
-                <div className="flex items-center gap-4">
-                  <img 
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <p className="font-semibold text-white text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-gray-500">Intense Fitness Studio Gym</p>
-                  </div>
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-gray-300 mb-6 leading-relaxed font-normal">"{review.quote}"</p>
+                <div>
+                  <p className="font-semibold text-white text-sm">{review.name}</p>
+                  {review.verified && (
+                    <p className="text-xs text-yellow-400">✓ Verified Review</p>
+                  )}
                 </div>
               </div>
             ))}
@@ -451,7 +458,7 @@ const HomePage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-gray-800">
+      <section className="bg-black px-4 sm:px-8 lg:px-16 py-24 border-t border-yellow-500/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Contact Form */}
@@ -470,7 +477,7 @@ const HomePage = () => {
                   placeholder="Name"
                   value={formData.name}
                   onChange={handleFormChange}
-                  className="w-full bg-gray-900 border border-gray-800 rounded-lg px-6 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-red-600 text-sm font-normal"
+                  className="w-full bg-gray-900 border border-yellow-500/30 rounded-lg px-6 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-yellow-400 text-sm font-normal"
                 />
                 <input
                   type="email"
@@ -478,7 +485,7 @@ const HomePage = () => {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleFormChange}
-                  className="w-full bg-gray-900 border border-gray-800 rounded-lg px-6 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-red-600 text-sm font-normal"
+                  className="w-full bg-gray-900 border border-yellow-500/30 rounded-lg px-6 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-yellow-400 text-sm font-normal"
                 />
                 <textarea
                   name="message"
@@ -486,7 +493,7 @@ const HomePage = () => {
                   rows="4"
                   value={formData.message}
                   onChange={handleFormChange}
-                  className="w-full bg-gray-900 border border-gray-800 rounded-lg px-6 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-red-600 text-sm font-normal"
+                  className="w-full bg-gray-900 border border-yellow-500/30 rounded-lg px-6 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-yellow-400 text-sm font-normal"
                 ></textarea>
                 <label className="flex items-center text-xs text-gray-400 font-normal">
                   <input type="checkbox" className="mr-3 rounded" />
@@ -494,7 +501,7 @@ const HomePage = () => {
                 </label>
                 <button
                   type="submit"
-                  className="w-full bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-bold transition text-white text-xs tracking-wide"
+                  className="w-full bg-yellow-400 hover:bg-yellow-500 px-8 py-3 rounded-lg font-bold transition text-black text-xs tracking-wide"
                 >
                   Submit
                 </button>
@@ -521,18 +528,18 @@ const HomePage = () => {
               <p className="text-gray-400 mb-8 font-normal text-sm leading-relaxed">Fill out the form or reach us directly.</p>
               <div className="space-y-5">
                 <p>
-                  <a href="mailto:contact@intensefitnessstudio.com" className="text-red-500 hover:text-red-400 transition text-sm font-normal">
+                  <a href="mailto:contact@intensefitnessstudio.com" className="text-yellow-400 hover:text-yellow-300 transition text-sm font-normal">
                     contact@intensefitnessstudio.com
                   </a>
                 </p>
                 <p>
-                  <a href="tel:+919876543210" className="text-red-500 hover:text-red-400 transition text-sm font-normal">
+                  <a href="tel:+919876543210" className="text-yellow-400 hover:text-yellow-300 transition text-sm font-normal">
                     +91 98765 43210
                   </a>
                 </p>
                 <p className="text-gray-400 text-sm font-normal leading-relaxed">
-                  101 Web Lane<br />
-                  Vizianagaram, Andhra Pradesh
+                  Babametta, Vizianagaram<br />
+                  Andhra Pradesh, India
                 </p>
               </div>
             </div>
@@ -541,7 +548,7 @@ const HomePage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-gray-800 py-20 px-4 sm:px-8 lg:px-16">
+      <footer className="bg-black border-t border-yellow-500/20 py-20 px-4 sm:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Brand */}
@@ -552,16 +559,16 @@ const HomePage = () => {
                 visibleSections['footer-1'] ? 'animate-slide-up' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-6" style={{ fontWeight: 600 }}>Elevate your fitness journey</h3>
+              <h3 className="text-2xl font-bold text-yellow-400 mb-6" style={{ fontWeight: 600 }}>Elevate your fitness journey</h3>
               <div className="space-y-4">
                 <p>
-                  <a href="#" className="text-red-500 hover:text-red-400 transition font-normal text-xs">Contact us</a>
+                  <a href="#" className="text-yellow-400 hover:text-yellow-300 transition font-normal text-xs">Contact us</a>
                 </p>
                 <p>
-                  <a href="tel:+919876543210" className="text-gray-400 hover:text-red-500 transition font-normal text-xs">+91 98765 43210</a>
+                  <a href="tel:+919876543210" className="text-gray-400 hover:text-yellow-400 transition font-normal text-xs">+91 98765 43210</a>
                 </p>
                 <p>
-                  <a href="mailto:info@intensefitness.com" className="text-gray-400 hover:text-red-500 transition font-normal text-xs">info@intensefitness.com</a>
+                  <a href="mailto:info@intensefitness.com" className="text-gray-400 hover:text-yellow-400 transition font-normal text-xs">info@intensefitness.com</a>
                 </p>
               </div>
             </div>
@@ -576,12 +583,12 @@ const HomePage = () => {
             >
               <h4 className="font-semibold mb-6 text-white text-xs tracking-wide">QUICK LINKS</h4>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-red-500 transition font-normal text-xs">Home</a></li>
-                <li><a href="#" className="hover:text-red-500 transition font-normal text-xs">About</a></li>
-                <li><a href="#" className="hover:text-red-500 transition font-normal text-xs">Trainers</a></li>
-                <li><a href="#" className="hover:text-red-500 transition font-normal text-xs">Programs</a></li>
-                <li><a href="#" className="hover:text-red-500 transition font-normal text-xs">Plans</a></li>
-                <li><a href="#" className="hover:text-red-500 transition font-normal text-xs">Contact</a></li>
+                <li><a href="#" className="hover:text-yellow-400 transition font-normal text-xs">Home</a></li>
+                <li><a href="#" className="hover:text-yellow-400 transition font-normal text-xs">About</a></li>
+                <li><a href="#" className="hover:text-yellow-400 transition font-normal text-xs">Trainers</a></li>
+                <li><a href="#" className="hover:text-yellow-400 transition font-normal text-xs">Programs</a></li>
+                <li><a href="#" className="hover:text-yellow-400 transition font-normal text-xs">Plans</a></li>
+                <li><a href="#" className="hover:text-yellow-400 transition font-normal text-xs">Contact</a></li>
               </ul>
             </div>
 
@@ -595,20 +602,20 @@ const HomePage = () => {
             >
               <h4 className="font-semibold mb-6 text-white text-xs tracking-wide">LOCATION & SOCIAL</h4>
               <p className="text-gray-400 mb-6 font-normal text-xs">
-                <a href="#" className="hover:text-red-500 transition">Location</a>
+                <a href="#" className="hover:text-yellow-400 transition">Vizianagaram</a>
               </p>
               <div className="flex gap-6">
-                <a href="#" className="text-gray-400 hover:text-red-500 transition text-xs font-normal">Facebook</a>
-                <a href="#" className="text-gray-400 hover:text-red-500 transition text-xs font-normal">Instagram</a>
-                <a href="#" className="text-gray-400 hover:text-red-500 transition text-xs font-normal">X</a>
-                <a href="#" className="text-gray-400 hover:text-red-500 transition text-xs font-normal">LinkedIn</a>
-                <a href="#" className="text-gray-400 hover:text-red-500 transition text-xs font-normal">YouTube</a>
+                <a href="#" className="text-gray-400 hover:text-yellow-400 transition text-xs font-normal">Facebook</a>
+                <a href="#" className="text-gray-400 hover:text-yellow-400 transition text-xs font-normal">Instagram</a>
+                <a href="#" className="text-gray-400 hover:text-yellow-400 transition text-xs font-normal">X</a>
+                <a href="#" className="text-gray-400 hover:text-yellow-400 transition text-xs font-normal">LinkedIn</a>
+                <a href="#" className="text-gray-400 hover:text-yellow-400 transition text-xs font-normal">YouTube</a>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-700 font-normal text-xs">
-            <p>Made by Intense Fitness Studio Gym</p>
+          <div className="border-t border-yellow-500/20 pt-8 text-center text-gray-700 font-normal text-xs">
+            <p>Made by Intense Fitness Studio Gym • Vizianagaram</p>
           </div>
         </div>
       </footer>
