@@ -511,34 +511,6 @@ const FeaturesSection = () => {
               </div>
             ))}
           </div>
-
-          {/* ── Stats bar ── */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '3px',
-              marginTop: '3px',
-              opacity: isVisible ? 1 : 0,
-              transition: 'opacity 0.8s ease 0.4s',
-            }}
-          >
-            {stats.map((s, i) => (
-              <div key={i} className="feat-stat-cell" style={{ borderTop: `2px solid ${s.color}` }}>
-                <div
-                  className="sc-num"
-                  style={{
-                    fontSize: s.suffix === '★' || s.num === '∞' ? '24px' : '30px',
-                    color: s.color,
-                  }}
-                >
-                  {s.num}
-                  <span style={{ fontSize: '16px', opacity: 0.8 }}>{s.suffix}</span>
-                </div>
-                <div className="sc-label">{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div style={{ paddingBottom: '96px' }} />

@@ -338,21 +338,6 @@ const Footer = () => {
                   <a key={p} href="#" className="footer-program-tag">{p}</a>
                 ))}
               </div>
-              <div style={{
-                marginTop: '28px',
-                padding: '16px',
-                border: '1px solid rgba(245,158,11,0.12)',
-                borderRadius: '3px',
-                background: 'rgba(245,158,11,0.03)',
-              }}>
-                <div style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: '28px', color: '#F59E0B', lineHeight: 1, letterSpacing: '0.04em',
-                }}>4.8 ★</div>
-                <div style={{ fontSize: '8px', fontWeight: 700, color: 'rgba(255,255,255,0.2)', letterSpacing: '0.18em', marginTop: '4px' }}>
-                  169 GOOGLE REVIEWS
-                </div>
-              </div>
             </div>
 
             {/* Col 4 — Social */}

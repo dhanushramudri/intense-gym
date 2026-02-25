@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import EditableImage from './EditableImage';
 
 const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -179,6 +180,7 @@ const HeroSection = () => {
           background: linear-gradient(135deg, rgba(245,158,11,0.3) 0%, transparent 50%, rgba(245,158,11,0.1) 100%);
           border-radius: 4px;
           z-index: 1;
+          pointer-events: none;
         }
         .img-wrapper img {
           border-radius: 3px;
@@ -519,10 +521,12 @@ const HeroSection = () => {
                 className="img-wrapper"
                 style={{ height: '520px' }}
               >
-                <img
-                  src="https://cdn.prod.website-files.com/image-generation-assets/34574341-f99a-4c15-9f10-0e1ff56f7fe6.avif"
-                  alt="Fitness training"
-                />
+  <EditableImage
+    imageId="hero-main"
+    fallback="https://cdn.prod.website-files.com/image-generation-assets/34574341-f99a-4c15-9f10-0e1ff56f7fe6.avif"
+    alt="Fitness training"
+    style={{ borderRadius: '3px', display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
+  />
                 {/* Inner gradient overlay */}
                 <div
                   style={{
@@ -531,6 +535,7 @@ const HeroSection = () => {
                     background: 'linear-gradient(to top, rgba(6,6,6,0.7) 0%, transparent 45%)',
                     borderRadius: '3px',
                     zIndex: 2,
+                    pointerEvents: 'none',   // ← ADD THIS LINE
                   }}
                 />
               </div>

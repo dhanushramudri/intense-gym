@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useAuth } from '../context/AuthContext';
+import AuthButton from './AuthButton';
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -510,6 +512,8 @@ const Navbar = () => {
                 <span>Join Now</span>
               </button>
 
+      <AuthButton />
+
               {/* Hamburger — mobile */}
               <button
                 className={`nav-hamburger${isMenuOpen ? ' open' : ''}`}
@@ -600,6 +604,9 @@ const Navbar = () => {
               }}>
                 Join Now →
               </button>
+            </div>
+            <div style={{ padding: '8px 24px 16px' }}>
+              <AuthButton />
             </div>
           </div>
         </div>
