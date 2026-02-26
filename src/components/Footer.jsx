@@ -131,6 +131,48 @@ const Footer = () => {
         }
         .marquee-track { animation: marquee 22s linear infinite; display: inline-flex; }
         .marquee-track:hover { animation-play-state: paused; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .footer-nav-link {
+            font-size: 10px;
+          }
+          .footer-program-tag {
+            font-size: 7px;
+            padding: 4px 8px;
+          }
+          .footer-social .fs-label {
+            font-size: 10px;
+          }
+          .footer-contact-link {
+            font-size: 11px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .marquee-track span {
+            padding: 0 16px !important;
+          }
+          .footer-nav-link {
+            font-size: 9px;
+          }
+          .footer-program-tag {
+            font-size: 6px;
+            padding: 3px 6px;
+          }
+          .footer-social .fs-label {
+            font-size: 9px;
+          }
+          .footer-contact-link {
+            font-size: 10px;
+          }
+        }
+
+        @media (max-width: 520px) {
+          .marquee-track span {
+            padding: 0 8px !important;
+          }
+        }
       `}</style>
 
       <footer
@@ -155,7 +197,7 @@ const Footer = () => {
         <div
           style={{
             borderBottom: '1px solid rgba(255,255,255,0.05)',
-            padding: '28px 0',
+            padding: 'clamp(16px, 4vw, 28px) 0',
             overflow: 'hidden',
             whiteSpace: 'nowrap',
             opacity: isVisible ? 1 : 0,
@@ -167,10 +209,10 @@ const Footer = () => {
               <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 0 }}>
                 <span style={{
                   fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: '13px',
+                  fontSize: 'clamp(10px, 2.5vw, 13px)',
                   letterSpacing: '0.22em',
                   color: i % 3 === 0 ? '#F59E0B' : 'rgba(255,255,255,0.1)',
-                  padding: '0 32px',
+                  padding: '0 clamp(8px, 3vw, 32px)',
                 }}>
                   {t}
                 </span>
@@ -181,33 +223,40 @@ const Footer = () => {
         </div>
 
         {/* ── Main footer body ── */}
-        <div style={{ padding: '72px 60px 0', maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <div style={{
+          padding: 'clamp(40px, 8vw, 72px) clamp(20px, 5vw, 60px) 0',
+          maxWidth: '1400px',
+          margin: '0 auto',
+          position: 'relative',
+          zIndex: 1,
+          width: '100%',
+        }}>
 
           {/* Top: Brand headline + CTA */}
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              marginBottom: '64px',
+              alignItems: 'flex-start',
+              marginBottom: 'clamp(40px, 8vw, 64px)',
               flexWrap: 'wrap',
-              gap: '32px',
+              gap: 'clamp(20px, 4vw, 32px)',
               ...(isVisible ? {} : { opacity: 0 }),
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
               transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s',
             }}
           >
-            <div>
+            <div style={{ flex: 1, minWidth: '280px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                 <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#10B981' }} className="live-dot" />
-                <span style={{ fontSize: '8px', fontWeight: 700, color: '#10B981', letterSpacing: '0.22em', textTransform: 'uppercase' }}>
+                <span style={{ fontSize: 'clamp(7px, 1.5vw, 8px)', fontWeight: 700, color: '#10B981', letterSpacing: '0.22em', textTransform: 'uppercase' }}>
                   Open Daily · 5AM – 10PM
                 </span>
               </div>
               <h2 style={{
                 fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: 'clamp(44px, 6vw, 80px)',
+                fontSize: 'clamp(32px, 7vw, 80px)',
                 fontWeight: 400,
                 color: '#fff',
                 lineHeight: 0.92,
@@ -218,18 +267,18 @@ const Footer = () => {
                 <span style={{ color: '#F59E0B' }}>FITNESS JOURNEY.</span>
               </h2>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px', minWidth: '140px' }}>
               <a
                 href="#"
                 style={{
                   background: '#F59E0B',
                   color: '#000',
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: '9px',
+                  fontSize: 'clamp(8px, 1.5vw, 9px)',
                   fontWeight: 800,
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  padding: '14px 28px',
+                  padding: 'clamp(12px, 2vw, 14px) clamp(18px, 3vw, 28px)',
                   borderRadius: '2px',
                   textDecoration: 'none',
                   transition: 'all 0.3s ease',
@@ -245,7 +294,7 @@ const Footer = () => {
                 href="#"
                 style={{
                   color: 'rgba(255,255,255,0.25)',
-                  fontSize: '9px',
+                  fontSize: 'clamp(8px, 1.5vw, 9px)',
                   fontWeight: 600,
                   letterSpacing: '0.15em',
                   textDecoration: 'none',
@@ -263,15 +312,15 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', marginBottom: '64px' }} />
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', marginBottom: 'clamp(40px, 8vw, 64px)' }} />
 
-          {/* 4-col grid */}
+          {/* Grid - Responsive */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1.6fr 1fr 1fr 1fr',
-              gap: '48px',
-              marginBottom: '64px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: 'clamp(32px, 6vw, 48px)',
+              marginBottom: 'clamp(40px, 8vw, 64px)',
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
               transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s',
@@ -289,13 +338,13 @@ const Footer = () => {
                 }}>
                   <span style={{ color: '#000', fontWeight: 900, fontSize: '13px' }}>✦</span>
                 </div>
-                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em' }}>
+                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 'clamp(10px, 2vw, 11px)', fontWeight: 600, letterSpacing: '0.05em' }}>
                   Intense Fitness Studio
                 </span>
               </div>
               <p style={{
                 color: 'rgba(255,255,255,0.2)',
-                fontSize: '12px',
+                fontSize: 'clamp(11px, 1.5vw, 12px)',
                 lineHeight: 1.8,
                 fontWeight: 300,
                 marginBottom: '28px',
@@ -306,7 +355,7 @@ const Footer = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <a href="tel:+919876543210" className="footer-contact-link">+91 98765 43210</a>
                 <a href="mailto:info@intensefitness.com" className="footer-contact-link">info@intensefitness.com</a>
-                <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '12px', fontWeight: 300, margin: 0, lineHeight: 1.6 }}>
+                <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: 'clamp(10px, 1.5vw, 12px)', fontWeight: 300, margin: 0, lineHeight: 1.6 }}>
                   Babametta, Vizianagaram<br />Andhra Pradesh – 535002
                 </p>
               </div>
@@ -315,9 +364,9 @@ const Footer = () => {
             {/* Col 2 — Navigation */}
             <div>
               <h4 style={{
-                fontSize: '8px', fontWeight: 800, color: 'rgba(255,255,255,0.2)',
+                fontSize: 'clamp(7px, 1.5vw, 8px)', fontWeight: 800, color: 'rgba(255,255,255,0.2)',
                 letterSpacing: '0.25em', textTransform: 'uppercase',
-                marginBottom: '24px', margin: '0 0 24px',
+                margin: '0 0 24px',
               }}>Navigation</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {navLinks.map(link => (
@@ -329,7 +378,7 @@ const Footer = () => {
             {/* Col 3 — Programs */}
             <div>
               <h4 style={{
-                fontSize: '8px', fontWeight: 800, color: 'rgba(255,255,255,0.2)',
+                fontSize: 'clamp(7px, 1.5vw, 8px)', fontWeight: 800, color: 'rgba(255,255,255,0.2)',
                 letterSpacing: '0.25em', textTransform: 'uppercase',
                 margin: '0 0 24px',
               }}>Programs</h4>
@@ -343,7 +392,7 @@ const Footer = () => {
             {/* Col 4 — Social */}
             <div>
               <h4 style={{
-                fontSize: '8px', fontWeight: 800, color: 'rgba(255,255,255,0.2)',
+                fontSize: 'clamp(7px, 1.5vw, 8px)', fontWeight: 800, color: 'rgba(255,255,255,0.2)',
                 letterSpacing: '0.25em', textTransform: 'uppercase',
                 margin: '0 0 24px',
               }}>Follow Us</h4>
@@ -362,27 +411,27 @@ const Footer = () => {
           <div
             style={{
               borderTop: '1px solid rgba(255,255,255,0.05)',
-              padding: '24px 0 32px',
+              padding: 'clamp(18px, 3vw, 24px) 0 clamp(24px, 4vw, 32px)',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               flexWrap: 'wrap',
-              gap: '12px',
+              gap: '16px',
               opacity: isVisible ? 1 : 0,
               transition: 'opacity 0.8s ease 0.5s',
             }}
           >
-            <p style={{ color: 'rgba(255,255,255,0.1)', fontSize: '9px', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.1)', fontSize: 'clamp(7px, 1.5vw, 9px)', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', margin: 0 }}>
               © 2025 Intense Fitness Studio · Vizianagaram · All rights reserved
             </p>
-            <div style={{ display: 'flex', gap: '24px' }}>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               {['Privacy Policy', 'Terms of Service'].map(item => (
                 <a
                   key={item}
                   href="#"
                   style={{
                     color: 'rgba(255,255,255,0.1)',
-                    fontSize: '9px',
+                    fontSize: 'clamp(7px, 1.5vw, 9px)',
                     fontWeight: 600,
                     letterSpacing: '0.12em',
                     textDecoration: 'none',
